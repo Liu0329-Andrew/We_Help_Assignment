@@ -1,0 +1,410 @@
+.frame{
+    display: flex;
+    padding: 10px;
+}
+.frame-left{
+    flex: none;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    width: 200px;
+    padding: 10px;
+}
+.left-font{
+    flex: auto;
+    font-weight: bold;
+}
+.frame-right{
+    padding: 10px;
+    flex: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.item{
+    flex: none;
+    text-align: center;
+    width: 90px;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.welcome{
+    width: 100%;
+    margin: 0;
+    display: flex;
+    height: 250px;
+    background-color: #add8e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.font{
+    flex: auto;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+}
+.body{
+    display: flex;
+    justify-content: center;
+}
+.boxes-container{
+    flex:none;
+    width:1200px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.text-below {
+    position: absolute; /* 絕對定位 */
+    bottom: 0px; /* 距離容器底部 10px */
+    left: 50%; /* 水平居中 */
+    right: 50%;
+    transform: translateX(-50%); /* 確保文字水平居中 */
+    background-color: rgba(255, 255, 255, 0.7); /* 半透明背景 */
+    color: black; /* 文字顏色 */
+    text-align: center; /* 文字置中 */
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.big-boxes-font{
+    flex: auto;
+    font-size: 20px; /* 字體大小 */
+}
+.big-boxes{
+    flex: none;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    width: calc(33% - 10px);
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+    height: 300px; /* 設定容器高度 */
+}
+.big-boxes-bottom{
+    flex: none;
+    margin-right: 20px;
+    width: calc(33% - 10px);
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+    height: 300px; /* 設定容器高度 */
+}
+.big-boxes-half{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(16.5% - 15px);
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+    height: 300px; /* 設定容器高度 */
+    margin-right: 20px;
+}
+.big-boxes-half-4{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(16.5% - 15px);
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+    height: 300px; /* 設定容器高度 */
+    margin-right: 20px;
+}
+.big-boxes-half-right{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(16.5% - 15px);
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+    height: 300px; /* 設定容器高度 */
+}
+.big-boxes-half-bottom{
+    flex: none;
+    margin-right: 20px;
+    width: calc(16.5% - 15px);
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+    height: 300px; /* 設定容器高度 */
+}
+.big-boxes-half-8{
+    flex: none;
+    margin-right: 20px;
+    width: calc(16.5% - 15px);
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+    height: 300px; /* 設定容器高度 */
+}
+.big-boxes-half-9{
+    flex: none;
+    margin-right: 20px;
+    width: calc(16.5% - 15px);
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+    height: 300px; /* 設定容器高度 */
+}
+.big-boxes-half-10{
+    flex: none;
+    width: calc(16.5% - 15px);
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+    height: 300px; /* 設定容器高度 */
+}
+.background-image{
+    width: 100%;
+    height: 100%;
+}
+.watermark{
+    position: absolute; /* 絕對定位 */
+    height: 40px;
+    width: 40px;
+    top: 0%; /*將星星固定在右上角*/
+    right: 0%;
+    opacity: 0.5; /* 設定透明度 */
+    pointer-events: none; /* 防止點擊事件干擾 */
+    margin: 10px;
+}
+.text-overlay {
+    position: absolute; /* 絕對定位 */
+    top: 50%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 精確居中 */
+    color: white; /* 文字顏色 */
+    font-size: 24px; /* 字體大小 */
+    font-weight: bold; /* 粗體字 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 添加文字陰影 */
+}
+.small-boxes{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(33% - 10px);
+    box-sizing: border-box;
+    margin-right: 20px;
+    background-color: #add8e6;
+    display: flex;
+}
+.small-boxes-2{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(33% - 10px);
+    box-sizing: border-box;
+    margin-right: 20px;
+    background-color: #add8e6;
+    display: flex;
+}
+.small-boxes-3{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(33% - 10px);
+    box-sizing: border-box;
+    background-color: #add8e6;
+    display: flex;
+}
+.img{
+    flex: none;
+    height: 50px;
+    width: 80px;
+}
+.small-boxes-content{
+   flex: none;
+   margin-left: 10px;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+}
+.small-boxes-font{
+    flex: auto;
+    text-align: center;
+    font-size: 20px;
+}
+.menu{
+    display: none;
+    width: 50px;
+    height: 50px;
+}
+.hamburger-menu{
+    display: none;
+}
+.close-btn{
+    display: none;
+}
+.ul{
+    display: none;
+}
+@media(max-width:1200px){
+    .boxes-container{
+        width: 90%;
+    }
+    .small-boxes{
+        width: calc(50% - 10px);
+    }
+    .small-boxes-2{
+        width: calc(50% - 10px);
+        margin-right: unset;
+    }
+    .small-boxes-3{
+        width: 100%;
+        margin-top: unset;
+    }
+    .big-boxes-container{
+        flex-wrap: wrap;
+    }
+    .big-boxes{
+        width: calc(25% - 15px);
+    }
+    .big-boxes-half{
+        width: calc(25% - 15px);
+        margin-right: 20px;
+    }
+    .big-boxes-half-4{
+        width: calc(25% - 15px);
+        margin-right: unset;
+    }
+    .big-boxes-half-right{
+        width: calc(25% - 15px);
+        margin-right: 20px;
+    }
+    .big-boxes-bottom{
+        width: calc(25% - 15px);
+        margin-bottom: 20px;
+    }
+    .big-boxes-half-bottom{
+        width: calc(25% - 15px);
+        margin-bottom: 20px;
+    }
+    .big-boxes-half-8{
+        width: calc(25% - 15px);
+        margin-right: unset;
+        margin-bottom: 20px;
+    }
+    .big-boxes-half-9{
+        width: calc(50% - 10px);
+    }
+    .big-boxes-half-10{
+        width: calc(50% - 10px);
+    }
+}
+
+@media(max-width:600px){
+    .frame-right{
+        display: none;
+    }
+    .frame-right{
+        display: none;
+    }
+    .hamburger-menu{
+        flex: auto;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .menu{
+        display: block;
+        flex: none;
+    }
+    .small-boxes{
+        width: 100%;
+        margin-right: unset;
+    }
+    .small-boxes-2{
+        width: 100%;
+    }
+    .big-boxes{
+        margin-right: unset;
+        width: 100%;
+    }
+    .big-boxes-half{
+        margin-right: unset;
+        width: 100%;
+    }
+    .big-boxes-half-4{
+        width: 100%;
+    }
+    .big-boxes-half-right{
+        margin-right: unset;
+        width: 100%;
+    }
+    .big-boxes-bottom{
+        margin-right: unset;
+        width: 100%;
+    }
+    .big-boxes-half-bottom{
+        margin-right: unset;
+        width: 100%;
+    }
+    .big-boxes-half-8{
+        width: 100%;
+    }
+    .big-boxes-half-9{
+        margin-right: unset;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .big-boxes-half-10{
+        width: 100%;
+    }
+    .hamburger-menu {
+        font-size: 20px;
+        cursor: pointer;
+        padding: 10px;
+        background: white;
+        color: #fff;
+        width: 50px;
+        text-align: center;
+    }
+    .body{
+        z-index: 0;
+    }
+    .side-menu {
+        display: none;
+        position: fixed;
+        right: 0px;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        background: #f4f4f4;
+        padding: 10px;
+        z-index: 10;
+    }
+    .ul{
+        display: block;
+        list-style: none;
+        text-align: center;
+    }
+    .items{
+        margin-bottom: 20px;
+    }
+    .close-btn {
+        display: block;
+        background: #f4f4f4;
+        color: black;
+        border: none;
+        position: fixed;
+        right: 0px;
+        top: 0;
+        padding: 10px;
+        cursor: pointer;
+        width: 50px;
+        text-align: center;
+        font-size: 18px;
+    }
+}
+    
+@media (max-width:410px) {
+    .font{
+        font-size: 33px;
+    }
+}
