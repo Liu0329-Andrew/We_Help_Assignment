@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <title>JS Practice</title>
+    </head>
+    <body>
+        <script>
+            //第一題:
+            
+            function findAndPrint(messages, currentStation){
+                const mainStations = [
+                    "Songshan", "Nanjing Sanmin", "Taipei Arena", "Nanjing Fuxing",
+                    "Songjiang Nanjing", "Zhongshan", "Beimen", "Ximen",
+                    "Xiaonanmen", "Chiang Kai-Shek Memorial Hall", "Guting", "Taipower Building",
+                    "Gongguan","Wanlong", "Jingmei", "Dapinglin",
+                    "Qizhang", "Xindian City Hall", "Xindian",
+                ];
+
+                const branchStation = ["Xiaobitan",]; // 分支站點
+                const branchConnection = "Qizhang";  // 分支轉運站
+                const connectionIndex = mainStations.indexOf(branchConnection);
+
+                let currentIndex = -1;
+
+                if(mainStations.includes(currentStation)){
+                    currentIndex = mainStations.indexOf(currentStation); //定義自己的現在位置是主要車站"索引值"的多少，方便計算距離
+                }
+                
+               
+                
+            
+                let nearestFriend = null; //放入最近的朋友名字
+                let nearestFriendDistance = Infinity; //確保第一次計算朋友的距離會更新。
+
+                for (const [friend, location] of Object.entries(messages)) {
+                    let friendStationName = null;
+
+                    for (const station of mainStations.concat(branchStation)) {
+                        if (location.includes(station)) {
+                            friendStationName = station; // 找到有效車站名稱，資料型態為字串
+                            break; // 一旦找到匹配的車站名稱就跳出迴圈
+                        }
+                    }
+
+                    if (!friendStationName) {
+                        continue; // 無效車站，跳過處理
+                    }
+
+                    let distance = Infinity;
+                    if (mainStations.includes(friendStationName)) {
+                        if(friendStationName !== currentStation && branchStation.includes(currentStation)){
+                            const friendStationIndex = mainStations.indexOf(friendStationName);
+                            distance = Math.abs(friendStationIndex - connectionIndex)+ 1 ;
+                        }
+                        else if(friendStationName !== currentStation && mainStations.includes(currentStation)){
+                            const friendStationIndex = mainStations.indexOf(friendStationName);
+                            distance = Math.abs(friendStationIndex - currentIndex);
+                        }
+                        else if(friendStationName === currentStation){
+                            distance=0;
+                        }
+                    }
+                    else if (branchStation.includes(friendStationName)) {
+                        if(friendStationName !== currentStation){
+                            const branchDistance = 1;
+                            distance = Math.abs(connectionIndex - currentIndex) + branchDistance;
+                        }
+                        else if(friendStationName == currentStation){
+                            distance=0;
+                        }
+                    }
+
+                    // 比較並更新最近的朋友資訊
+                    
+                    if (distance < nearestFriendDistance) {
+                        nearestFriendDistance = distance;
+                        nearestFriend = friend;
+                    }     
+                }
+
+                if (nearestFriend) {
+                    console.log(nearestFriend);
+                } 
+                else {
+                    console.log("No friend found.");
+                }
+            }
+            
+            const messages={
+            "Bob":"I'm at Ximen MRT station.",
+            "Mary":"I have a drink near Jingmei MRT station.",
+            "Copper":"I just saw a concert at Taipei Arena.",
+            "Leslie":"I'm at home near Xiaobitan station.",
+            "Vivian":"I'm at Xindian station waiting for you."
+            };
+            
+            findAndPrint(messages, "Wanlong"); // print Mary
+            findAndPrint(messages, "Songshan"); // print Copper
+            findAndPrint(messages, "Qizhang"); // print Leslie
+            findAndPrint(messages, "Ximen"); // print Bob
+            findAndPrint(messages, "Xindian City Hall"); // print Vivian
+            findAndPrint(messages, "Xiaobitan"); // print Leslie (我自己測試的情境)
+            
+
+            //第二題:
+            
+            function book(consultants, hour, duration, criteria){ 
+                if (!consultants[0].schedule) {
+                        consultants.forEach((consultant) => {
+                            consultant.schedule = [];
+                        });
+                    }
+                
+                const startTime = hour; //定義預約開始、結束時間跟中間經過多久
+                const endTime = hour + duration;
+
+                let sortedConsultants; // 根據 criteria 設定排序邏輯順序，放入變數(也就是說)
+                if (criteria === "price") { //嚴格等於
+                    sortedConsultants = consultants.slice().sort((a, b) => a.price - b.price); //價格由低到高
+                }
+                else if (criteria === "rate") {
+                // 按評價由高到低排序
+                    sortedConsultants = consultants.slice().sort((a, b) => b.rate - a.rate); //評價由高到低
+                } 
+
+                for (const consultant of sortedConsultants) { //定義consultant，進去陣列中拿取資料，共拿取三次
+                    if (isAvailable(consultant, startTime, endTime)) { // 如果找到有空檔的顧問，進行預約
+                        consultant.schedule.push([startTime, endTime]); //紀錄每位顧問預約時間
+                        console.log(consultant.name);
+                        return consultant.name;
+                    }
+                }
+
+                console.log("No Service")
+
+                function isAvailable(consultant, start, end) { //檢查顧問是否在指定時間段內有空
+                    return consultant.schedule.every(
+                        ([startScheduled, endScheduled]) => 
+                        end <= startScheduled || start >= endScheduled
+                    );
+                }
+            }
+
+            const consultants=[
+            {"name":"John", "rate":4.5, "price":1000},
+            {"name":"Bob", "rate":3, "price":1200},
+            {"name":"Jenny", "rate":3.8, "price":800}
+            ];
+
+            book(consultants, 15, 1, "price"); // Jenny
+            book(consultants, 11, 2, "price"); // Jenny
+            book(consultants, 10, 2, "price"); // John
+            book(consultants, 20, 2, "rate"); // John
+            book(consultants, 11, 1, "rate"); // Bob
+            book(consultants, 11, 2, "rate"); // No Service
+            book(consultants, 14, 3, "price"); // John
+
+            //第三題:
+            
+            function func(...data){ //...將參數中的多個獨立字串蒐集成一個陣列，放進data中
+                const middleNameCounts = {}; // 用來記錄中間名的出現次數
+                const nameToMiddleName = {}; // 紀錄名字對應的中間名
+
+                for(const name of data){ //用for迴圈將所有的資料一個一個提取出來，並且放在name變數
+                    const length = name.length;
+                    let middleName = null;
+
+                    if (length <= 3) {
+                        middleName = name[1]; // 第二個字
+                    } 
+                    else if (length <= 5) {
+                        middleName = name[2]; // 第三個字
+                    }
+
+                    if (middleName) { //假如middlename有效
+                        nameToMiddleName[name] = middleName;
+                        middleNameCounts[middleName] = (middleNameCounts[middleName] || 0) + 1;
+                    }   
+                }
+
+                const uniqueNames = [];
+                for (const [name, middleName] of Object.entries(nameToMiddleName)) {
+                    if (middleNameCounts[middleName] === 1) {
+                        uniqueNames.push(name); // 中間名唯一的名字
+                    }
+                }
+
+                  // 處理沒有唯一中間名的情況
+                if (uniqueNames.length === 0){
+                    console.log("沒有");
+                } 
+                else {
+                    console.log(uniqueNames.join(", ")); 
+                }
+            }
+            
+            func("彭大牆", "陳王明雅", "吳明"); // print 彭大牆
+            func("郭靜雅", "王立強", "郭林靜宜", "郭立恆", "林花花"); // print 林花花
+            func("郭宣雅", "林靜宜", "郭宣恆", "林靜花"); // print 沒有
+            func("郭宣雅", "夏曼藍波安", "郭宣恆"); // print 夏曼藍波安
+            
+
+            //第四題:
+            
+            function getNumber(index){
+                let numberSequence = function generatePattern(length){ //步驟1:先做出陣列，並放入變數儲存
+                const result = [0,]; //結果為陣列形式
+                let a = 0;
+                while (result.length < length){
+                    // 每組的四個數
+                    let b = a + 4;
+                    let c = b + 4;
+                    let d = c - 1;
+                    // 加入該組數字
+                    result.push( b, c, d,);
+                    // 更新下一組的起始值
+                    a = d
+                }
+                // 截斷多餘的數字
+                return result.slice(0, length);
+                }   
+                console.log(numberSequence(1000)[index])    //步驟2:做出拿到index的函式  
+            }
+            //測試結果
+            getNumber(1); // print 4
+            getNumber(5); // print 15
+            getNumber(10); // print 25
+            getNumber(30); // print 70
+    
+        </script>
+    </body>
+</html>
