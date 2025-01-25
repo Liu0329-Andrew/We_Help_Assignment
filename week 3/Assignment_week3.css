@@ -1,0 +1,218 @@
+body{
+    margin: 0;
+}
+.frame{
+    display: flex;
+    padding: 10px;
+}
+.frame-left{
+    flex: none;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    width: 200px;
+    padding: 10px;
+}
+.left-font{
+    flex: auto;
+    font-weight: bold;
+}
+.frame-right{
+    padding: 10px;
+    flex: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.item{
+    flex: none;
+    text-align: center;
+    width: 90px;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.welcome{
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    height: 250px;
+    background-color: #add8e6;
+    justify-content: center;
+    align-items: center;
+    
+}
+.font{
+    flex: auto;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+}
+.body{
+    display: flex;
+    justify-content: center;
+}
+.boxes-container{
+    flex:none;
+    width:1200px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.text-below {
+    position: absolute; /* 絕對定位 */
+    bottom: 0px; /* 距離容器底部 0px */
+    left: 50%; /* 水平居中 */
+    transform: translateX(-50%); /* 確保文字水平居中 */
+    background-color: rgba(255, 255, 255, 0.7); /* 半透明背景 */
+    color: black; /* 文字顏色 */
+    font-weight: bold;
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center; /* 文字置中 */
+    width: 100%;
+    height: 40px;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.small-boxes{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(33% - 10px);
+    height: 50px;
+    box-sizing: border-box;
+    margin-right: 20px;
+    background-color: #add8e6;
+    display: flex;
+}
+.small-boxes-3{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(33% - 10px);
+    height: 50px;
+    box-sizing: border-box;
+    background-color: #add8e6;
+    display: flex;
+}
+.small-boxes-font{
+    display: flex;
+    justify-content: flex-end;
+}
+.big-boxes{
+    flex: none;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    width: calc(33% - 10px);
+    aspect-ratio: 16 / 9; /* 固定比例為16:9 */
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+}
+.big-boxes-bottom{
+    flex: none;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: calc(33% - 10px);
+    aspect-ratio: 16 / 9; /* 固定比例為16:9 */
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+}
+.big-boxes-half{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(16.5% - 15px);
+    aspect-ratio: 179.7 / 213.41;
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+    margin-right: 20px;
+}
+.big-boxes-half-right{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(16.5% - 15px);
+    aspect-ratio: 179.7 / 213.41;
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+}
+.big-boxes-half-bottom{
+    flex: none;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: calc(16.5% - 15px);
+    aspect-ratio: 179.7 / 213.41;
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+}
+.big-boxes-half-10{
+    flex: none;
+    width: calc(16.5% - 15px);
+    aspect-ratio: 179.7 / 213.41;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+}
+.small-boxes img {
+    flex: none;
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+    width: 80px;
+}
+.small-boxes-3 img{
+    flex: none;
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+    width: 80px;
+}
+#big-boxes img{
+    width: 100%;
+    height: 100%;
+    bottom: 0%;
+    top: 0%;
+    position: relative;
+}
+.newimg{
+    width: 100%;
+    height: 100%;
+    bottom: 0%;
+    top: 0%;
+    position: relative;
+}
+#small-boxes div{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.star {
+    position: absolute; /*確保big-boxes:position: relative*/
+    top: 10px;
+    right: 10px;
+    font-size: 30px; 
+    color: gold; 
+    z-index: 10; /* 保證在最上層 */
+}
+.load-more-btn{
+    background-color: gray;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    left: 50%;
+}
