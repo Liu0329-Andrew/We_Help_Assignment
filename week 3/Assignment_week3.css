@@ -1,0 +1,413 @@
+body{
+    margin: 0;
+}
+.frame{
+    display: flex;
+    padding: 10px;
+}
+.frame-left{
+    flex: none;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    width: 200px;
+    padding: 10px;
+}
+.left-font{
+    flex: auto;
+    font-weight: bold;
+}
+.frame-right{
+    padding: 10px;
+    flex: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.hamburger-menu{
+    display: none;
+}
+.side-menu {
+    display: none;
+    position: fixed;
+    right: 0px;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    background: #f4f4f4;
+    padding: 10px;
+    z-index: 10; /*用來覆蓋底下的資料*/
+}
+.close-btn{
+    display: none;
+}
+.ul{
+    display: none;
+}
+.item{
+    flex: none;
+    text-align: center;
+    width: 90px;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.welcome{
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    height: 250px;
+    background-color: #add8e6;
+    justify-content: center;
+    align-items: center;
+    
+}
+.font{
+    flex: auto;
+    font-weight: bold;
+    font-size: 40px;
+    text-align: center;
+}
+.body{
+    display: flex;
+    justify-content: center;
+}
+.boxes-container{
+    flex:none;
+    width:1200px;
+    padding: 10px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.text-below {
+    position: absolute; /* 絕對定位 */
+    bottom: 0px; 
+    left: 50%; /* 水平居中 */
+    transform: translateX(-50%); /* 確保文字水平居中 */
+    background-color: rgba(255, 255, 255, 0.7); /* 半透明背景 */
+    color: black; /* 文字顏色 */
+    font-weight: bold;
+    font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center; /* 文字置中 */
+    width: 100%;
+    height: 40px;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.small-boxes, .small-boxes-2{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(33% - 10px);
+    height: 50px;
+    box-sizing: border-box;
+    margin-right: 20px;
+    background-color: #add8e6;
+    display: flex;
+}
+.small-boxes-3{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(33% - 10px);
+    height: 50px;
+    box-sizing: border-box;
+    background-color: #add8e6;
+    display: flex;
+}
+.small-boxes-font{
+    display: flex;
+    justify-content: flex-end;
+}
+.big-boxes, .big-boxes-bottom{
+    flex: none;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    width: calc(33% - 10px);
+    aspect-ratio: 16 / 9; /* 固定比例為16:9 */
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+}
+.big-boxes-half-4, .big-boxes-half{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(16.5% - 15px);
+    aspect-ratio: 179.7 / 213.41;
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+    margin-right: 20px;
+}
+.big-boxes-half-right{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(16.5% - 15px);
+    aspect-ratio: 179.7 / 213.41;
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+}
+.big-boxes-half-bottom, .big-boxes-half-8, .big-boxes-half-9{
+    flex: none;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: calc(16.5% - 15px);
+    aspect-ratio: 179.7 / 213.41;
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+}
+.big-boxes-half-10{
+    flex: none;
+    width: calc(16.5% - 15px);
+    aspect-ratio: 179.7 / 213.41;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+}
+.small-boxes img, .small-boxes-2 img, .small-boxes-3 img{
+    flex: none;
+    display: flex;
+    justify-content: flex-start;
+    height: 50px;
+    width: 80px;
+}
+#big-boxes img{
+    width: 100%;
+    height: 100%;
+    bottom: 0; /* 微調以消除間隙 */
+    box-sizing: border-box;
+    bottom: 0%;
+    top: 0%;
+    position: absolute;
+}
+.newimg{
+    width: 100%;
+    height: 100%;
+    bottom: 0%;
+    top: 0%;
+    position: absolute;
+}
+#small-boxes div{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.star {
+    position: absolute; /*確保big-boxes:position: relative*/
+    top: 10px;
+    right: 10px;
+    font-size: 30px; 
+    color: gold; 
+    z-index: 10; /* 保證在最上層 */
+}
+.load-more-btn{
+    background-color: gray;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    left: 50%;
+}
+.new-big-boxes{
+    flex: none;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    width: calc(33% - 10px);
+    aspect-ratio: 16 / 9; /* 固定比例為16:9 */
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+}
+.new-big-boxes-half, .new-big-boxes-half-47, .new-big-boxes-half-9{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(16.5% - 15px);
+    aspect-ratio: 179.7 / 213.41;
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+    margin-right: 20px;
+}
+
+.new-big-boxes-half-right, .new-big-boxes-half-10{
+    flex: none;
+    margin-bottom: 20px;
+    width: calc(16.5% - 15px);
+    aspect-ratio: 179.7 / 213.41;
+    box-sizing: border-box;
+    background-color: #add8e6;
+    position: relative; /* 父容器設置為相對定位 */
+}
+
+
+
+@media(max-width:1200px){
+    .boxes-container{
+        width: 90%;
+    }
+    .small-boxes{
+        width: calc(50% - 10px);
+        aspect-ratio: 520 / 50;
+    }
+    .small-boxes-2{
+        width: calc(50% - 10px);
+        aspect-ratio: 520 / 50;
+        margin-right: unset;
+    }
+    .small-boxes-3{
+        width: 100%;
+        aspect-ratio: 1060 / 50;
+        margin-top: unset;
+    }
+    .big-boxes{
+        width: calc(25% - 15px);
+        aspect-ratio: 3 / 4;
+    }
+    .big-boxes-half, .big-boxes-half-right, .big-boxes-bottom, .big-boxes-half-bottom{
+        width: calc(25% - 15px);
+        aspect-ratio: 3 / 4;
+        margin-right: 20px;
+    }
+    .big-boxes-half-4{
+        width: calc(25% - 15px);
+        aspect-ratio: 3 / 4;
+        margin-right: unset;
+    }
+    .big-boxes-half-8{
+        width: calc(25% - 15px);
+        aspect-ratio: 3 / 4;
+        margin-right: unset;
+        margin-bottom: 20px;
+    }
+    .big-boxes-half-9, .big-boxes-half-10{
+        width: calc(50% - 10px);
+        aspect-ratio:  520 / 333.33;
+    }
+    .new-big-boxes{
+        width: calc(25% - 15px);
+        aspect-ratio: 3 / 4;
+    }
+    .new-big-boxes-half, .new-big-boxes-half-right{
+        width: calc(25% - 15px);
+        aspect-ratio: 3 / 4;
+        margin-right: 20px;
+    }
+   .new-big-boxes-half-47{
+        margin-right: unset;
+        width: calc(25% - 15px);
+        aspect-ratio: 3 / 4;
+   }
+   .new-big-boxes-half-9, .new-big-boxes-half-10{
+        width: calc(50% - 10px);
+        aspect-ratio: 520 / 333.33;
+   }
+}
+
+@media(max-width:600px){
+    .hamburger-menu{
+        flex: auto;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .small-boxes, .small-boxes-2, .small-boxes-3{
+        width: 100%;
+        margin-right: unset;
+    }
+    .frame-right{
+        display: none;
+    }
+    .big-boxes-half-4{
+        width: 100%;
+        aspect-ratio: 5 / 4;
+    }
+    .big-boxes-half-right, .big-boxes-half-bottom, .big-boxes-bottom, .big-boxes, .big-boxes-half{
+        margin-right: unset;
+        width: 100%;
+        aspect-ratio: 5 / 4;
+    }
+    
+    .big-boxes-half-8, .big-boxes-half-10{
+        width: 100%;
+        aspect-ratio: 5 / 4;
+    }
+    .big-boxes-half-9{
+        margin-right: unset;
+        margin-bottom: 20px;
+        width: 100%;
+        aspect-ratio: 5 / 4;
+    }
+    .new-big-boxes-half-47, .new-big-boxes-half-10{
+        width: 100%;
+        aspect-ratio: 5 / 4;
+    }
+    .new-big-boxes, .new-big-boxes-half, .new-big-boxes-half-right, .new-big-boxes-half-9{
+        width: 100%;
+        aspect-ratio: 5 / 4;
+        margin-right: unset;
+    }
+    .hamburger-menu {
+        font-size: 20px;
+        cursor: pointer;
+        padding: 10px;
+        background: white;
+        color: #fff;
+        width: 50px;
+        text-align: center;
+    }
+    .body{
+        z-index: 0;
+    }
+    .side-menu {
+        display: none;
+        position: fixed;
+        right: 0px;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        background: #f4f4f4;
+        padding: 10px;
+        z-index: 10; /*用來覆蓋底下的資料*/
+    }
+    .ul{
+        display: block;
+        list-style: none;
+        text-align: center;
+    }
+    .items{
+        margin-bottom: 20px;
+    }
+    .close-btn {
+        display: block;
+        background: #f4f4f4;
+        color: black;
+        border: none;
+        position: fixed;
+        right: 0px;
+        top: 0;
+        padding: 10px;
+        cursor: pointer;
+        width: 50px;
+        text-align: center;
+        font-size: 18px;
+    }
+    .side-menu{
+        z-index: 20;
+    }
+    
+}
