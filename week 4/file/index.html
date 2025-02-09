@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>signin</title>
+        <link rel="stylesheet" type="text/css" href="/index.css">
+    </head>
+    <body>
+        <div class="welcome">
+            <div class="font">歡迎光臨，請輸入帳號密碼</div>
+        </div>
+        <div class="title">登入系統</div>
+        <div class="container">
+            <form class="form" action="/signin" method="post" id="loginForm"> <!--連線到/signin做檢查-->
+                帳號 <input type="text" id="username" name="username" class="input"/><br/>
+                密碼 <input type="password" id="password" name="password" class="input"/>
+                <div class="term">
+                    <div class="agree">同意條款</div>
+                    <input type="checkbox" id="agree" name="checkbox"/>
+                </div>
+                <div class="btn">
+                    <button type="submit">登入</button>
+                </div>
+            </form>
+        </div>
+        <hr/>
+        <div class="title-1"><h3>計算正整數的平方</h3></div>
+        <form onsubmit="changeType(event)">
+            <div class="count-form">正整數 <input type="text" name="num" id="number"></div>
+            <br/>
+            <div class="btn">
+                <button type="submit">計算</button>
+            </div>
+        </form>
+
+        <script>
+           document.getElementById("loginForm").addEventListener("submit", function(event) {
+            let checkbox = document.getElementById("agree");
+            if (!checkbox.checked) {
+                alert("Please check the checkbox first"); /*沒有勾選checkbox，跳出警告*/
+                event.preventDefault(); // 阻止表單提交
+                }
+            });
+
+            function changeType(event) {
+                event.preventDefault();  // 防止表單預設提交
+                var number = document.getElementById("number").value;  // 獲取輸入值
+                if (!Number.isInteger(Number(number)) || number <= 0 ) {
+                    alert("Please enter a positive number");
+                    window.location.href = "/"; // 變更 URL 並導向
+                }
+                else{
+                    window.location.href = "/square/"+number;
+                }
+            }
+            
+            
+        </script>
+    </body>
+</html>
