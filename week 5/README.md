@@ -14,11 +14,11 @@
 
 ● SELECT all rows from the member table
 
-![](select.png)
+![](select1.png)
 
 ● SELECT all rows from the member table, in descending order of time.
 
-![](time_order.png) ![](time_order_limit3.png)
+
 
 ● SELECT total 3 rows, second to fourth, from the member table, in descending order of time(先手動更新時間欄位)
 
