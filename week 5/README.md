@@ -10,7 +10,7 @@
 ## Task 3:
 ● INSERT a new row to the member table where name, username and password must be set to test. INSERT additional 4 rows with arbitrary data.
 
-![](insert.png) ![](update_member.png) 
+![](insert.png) ![](update_member.png) ![](new_time.png)
 
 ● SELECT all rows from the member table
 
