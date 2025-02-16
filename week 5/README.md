@@ -70,12 +70,12 @@
 
 ● SELECT all messages, including sender names, where sender username equals to test. We have to JOIN the member table to filter and get that.
 
-
+![](new_select1.png)
 
 ● Use SELECT, SQL Aggregation Functions with JOIN statement, get the average like count of messages where sender username equals to test.
 
-
+![](join2.png)
 
 ● Use SELECT, SQL Aggregation Functions with JOIN statement, get the average like count of messages GROUP BY sender username.
 
-
+![](avg2.png)
