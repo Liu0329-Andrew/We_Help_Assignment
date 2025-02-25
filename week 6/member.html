@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>member</title>
+        <link rel="stylesheet" type="text/css" href="member.css"> <!--引用CSS檔案-->
+    </head>
+    <body>
+        <div class="welcome">
+            <div class="title">歡迎光臨，這是會員頁</div>
+        </div>
+        <div class="font">{{ name }}，歡迎登入系統</div>
+        <div class="link"><a href="/signout">登出系統</a></div> <!--登出連結，發送請求到/signout做後續操作-->
+        <hr/>
+        <div style="display: flex; justify-content: center; font-weight: bold; font-size: 30px;">快來留言吧</div><br/>
+        <form class="form" action="/createMessage" method="post" id="messageForm">
+            內容<input type="text" id="messageContent" name="content" class="input"/>
+            <br/>
+            <div class="btn">
+                <button type="submit">送出</button>
+            </div>
+        </form>
+        <hr/>
+        <div class="message-board">
+            {% for message in messages %}
+                <p><strong>{{ message.username }}</strong>: {{ message.content }}</p>
+            {% endfor %}
+        </div>
+    </body>
+</html>
