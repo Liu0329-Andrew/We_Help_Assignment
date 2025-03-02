@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>member</title>
+        <link rel="stylesheet" type="text/css" href="member.css"> <!--引用CSS檔案-->
+    </head>
+    <body>
+        <div class="welcome">
+            <div class="title">歡迎光臨，這是會員頁</div>
+        </div>
+        <div class="font" id="welcomeDisplay">{{ name }}，歡迎登入系統</div>
+        <div class="link"><a href="/signout">登出系統</a></div> <!--登出連結，發送請求到/signout做後續操作-->
+            <br/>
+            <br/>
+        <div class="title1">查詢會員名稱</div>
+        <div class="container">
+            <form class="form">
+                <input type="text" name="search_username" id="userNameInput">
+            </form>
+            <div><button onclick="searchUserName()">查詢</button></div>
+        </div>
+        <p id="result" class="Result"></p>
+            <br/>
+            <br/>
+        <div class="title1">更新我的姓名</div>
+        <div class="container">
+            <form class="form">
+                <input type="text" id="updateNameInput">
+            </form>
+            <div><button onclick="updateName()">更新</button></div>
+        </div>
+        <p id="result1" class="Result"></p>
+
+        <script>
+            function searchUserName(){
+                let username=document.getElementById("userNameInput").value;
+                let resultElement = document.getElementById("result"); // 取得要渲染的"結果"區塊
+
+                fetch(`/api/member?username=${username}`).then(response=>response.json())
+                .then(data=>{
+                    if (data.data) {
+                        resultElement.textContent = `${data.data.name} (${data.data.username})`;
+                    }
+                    else {
+                        resultElement.textContent = "No Data";
+                    }
+                });
+            };
+
+            function updateName(){
+                let newName=document.getElementById("updateNameInput").value;
+                let resultElement1=document.getElementById("result1");
+                let display=document.querySelector("#welcomeDisplay");
+
+                fetch("/api/member", {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ name: newName })
+                    })
+                    .then(response => response.json())
+                    .then(data1 => {
+                        if (data1.ok) {
+                            resultElement1.textContent="更新成功！";
+                            display.textContent=`${newName}，歡迎登入系統`
+                        } 
+                        else {
+                            resultElement1.textContent="更新失敗!";
+                        }
+                    })
+                };
+        </script>
+    </body>
+</html>

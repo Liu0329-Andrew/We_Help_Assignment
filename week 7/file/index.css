@@ -1,0 +1,53 @@
+body{
+    margin: 0;
+    width: auto;
+    position: relative;
+}
+.welcome{
+    background-color: #000079;
+    color: white;
+    font-size:40px;
+    font-weight: bold;
+    width: 100vw;
+    height: 100px;
+    display: flex;
+}
+.font{
+    flex:auto;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+}
+.title,.title-1{
+    font-size:30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content:center;
+    font-weight: bold;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.form{
+    margin-bottom: 10px;
+}
+.input{
+    margin-bottom: 10px;
+}
+.term{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.btn{
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+.count-form{
+    display: flex;
+    justify-content: center;
+}
